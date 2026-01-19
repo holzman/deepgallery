@@ -69,7 +69,7 @@ ngettext = glocale.translation.ngettext # else "nearby" comments are ignored
 #-------------#
 # Messages    #
 #-------------#
-MSG_PHOTO_TOOLTIP = _('Double-click on the picture to edit the media object.')
+MSG_PHOTO_TOOLTIP = _('Double-click on the picture to view the media object.')
 MSG_VIEW = _('View')
 MSG_OPEN_CONTAINING_FOLDER = _('Open Containing Folder')
 MSG_EDIT = _('Edit')
@@ -316,7 +316,7 @@ class DeepPhoto(Gtk.EventBox):
         """
         if (event.type == Gdk.EventType.DOUBLE_BUTTON_PRESS
                 and event.button == 1):
-            EditMedia(self.dbstate, self.uistate, [], self.media)
+            open_file_with_default_application(self.full_path, self.uistate)
             return True
 
         if is_right_click(event):
